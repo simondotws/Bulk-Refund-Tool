@@ -1,0 +1,12 @@
+[
+  {
+    "payment_id": "PM00327ZFVAA2H",
+    "amount": 1,
+    "total_amount_confirmation": 11
+  },
+  {
+    "payment_id": "PM00327SZY1FR7",
+    "amount": 1,
+    "total_amount_confirmation": 3
+  }
+]
