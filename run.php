@@ -2,6 +2,11 @@
 require_once './vendor/autoload.php';
 require_once './lib/functions.php';
 
+if(!file_exists(".env")){
+  echo "ERROR: Create your .env file";
+  exit();
+}
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__); //Location of .env file
 $dotenv->safeLoad();
 
@@ -41,12 +46,12 @@ if(!empty($data)){
       }
   }
 
-  echo "<pre>";
-  print_r($completed);
-
   $fp = fopen('completed.json', 'w');
   fwrite($fp, json_encode($completed, JSON_PRETTY_PRINT));
   fclose($fp);
+
+  header('Content-Type: application/json');
+  echo json_encode($completed);
 
 } else {
   echo "ERROR: No Data Available";
